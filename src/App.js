@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
+import irokoLogo from './irokoLogo.png';
+import LH from './LH.jpg';
 import './App.css';
 
 class App extends Component {
@@ -36,8 +38,12 @@ class App extends Component {
 
     return (
       <div className = "App">
+          <div className="logos">
+            <img src={logo} className="App-logo" alt="Movie-DB-logo" />
+            <img src={irokoLogo} className="App-logo" alt="Iroko-logo" />
+            <img src={LH} className="App-logo" alt="LH-logo" />
+          </div>
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>

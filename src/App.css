@@ -2,8 +2,13 @@
   text-align: center;
 }
 
+.logos {
+  display: inline-block;
+}
+
 .App-logo {
-  height: 40vmin;
+  height: 10vmin;
+  margin: 1vmin 5vmin;
 }
 
 .App-header {
