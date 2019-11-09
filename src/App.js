@@ -14,12 +14,25 @@ class App extends Component {
     fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`)
       .then((res) => res.json())
       .then(data => this.setState({
-        data: data
+          popular: data.results
       }))
+      .catch((error) => {
+        console.log('Looks like there was a problem: \n', error);
+      })
+
+      fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`)
+      .then((res) => res.json())
+      .then(data => this.setState({
+        topRated: data.results
+      }))
+      .catch((error) => {
+        console.log('Looks like there was a problem: \n', error);
+      })
   }
 
   render() {
-    console.log('data', this.state.data ? this.state.data.results : 'still waiting' ) //showing api request results for popular movies
+    console.log('results popular', this.state.popular ? this.state.popular : 'still waiting' ) //showing api request results for popular movies
+    console.log('results top', this.state.topRated? this.state.topRated : 'still waiting' ) //showing api request results for popular movies
 
     return (
       <div className = "App">
