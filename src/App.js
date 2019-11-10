@@ -3,7 +3,7 @@ import logo from './logos/logo.svg';
 import irokoLogo from './logos/irokoLogo.png';
 import LH from './logos/LH.jpg';
 import './App.css';
-
+import Category from './components/category'
 class App extends Component {
 
   constructor(props) {
@@ -55,6 +55,7 @@ class App extends Component {
           >
             Learn React
           </a>
+          <Category />
         </header>
       </div>
     );
