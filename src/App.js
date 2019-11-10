@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
-import irokoLogo from './irokoLogo.png';
-import LH from './LH.jpg';
+import logo from './logos/logo.svg';
+import irokoLogo from './logos/irokoLogo.png';
+import LH from './logos/LH.jpg';
 import './App.css';
 
 class App extends Component {
