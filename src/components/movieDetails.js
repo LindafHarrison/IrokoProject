@@ -36,7 +36,7 @@ class MovieDetails extends Component {
             />
           </Col>
           <Col xs={7} sm={7} md={7} lg={7} xl={7} className="right-side">
-            <h1>{details.title}</h1>
+            <p className="movie-title">{details.title}</p>
             <Grid fluid>
               <Row>
                 <Col xs={3} sm={3} md={3} lg={3} xl={3}>
@@ -69,7 +69,9 @@ class MovieDetails extends Component {
                       videoId={videos.results[0].key}
                       onClose={closeModal}
                     />
-                    <button onClick={openModal}>Movie Trailer</button>
+                    <button className="trailer-button" onClick={openModal}>
+                      Movie Trailer
+                    </button>
                   </div>
                 </Row>}
             </Grid>
