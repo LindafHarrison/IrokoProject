@@ -35,13 +35,13 @@ class Category extends Component {
     let movieList = movies
       ? movies.map ((movie, i) => {
           return (
-            <div key={i} className="movie">
+            <div key={i} className="Movie">
               <img
                 className="Poster"
                 src={`https://image.tmdb.org/t/p/w370_and_h556_bestv2/${movie.poster_path}`}
                 alt="movie poster"
               />
-              <h3>{movie.title}</h3>
+              <p className="Movie-title">{movie.title}</p>
             </div>
           );
         })

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import logo from './logos/logo.svg';
 import irokoLogo from './logos/irokoLogo.png';
 import LH from './logos/LH.jpg';
-import './App.css';
+import './App.scss';
 import Category from './components/category';
 
 import {Grid, Row} from 'react-flexbox-grid';
@@ -49,8 +49,10 @@ class App extends Component {
             <img src={irokoLogo} className="App-logo" alt="Iroko-logo" />
             <img src={LH} className="App-logo" alt="LH-logo" />
           </Row>
-          <Category movies={this.state.popular} category="Popular" />
-          <Category movies={this.state.topRated} category="Top Rated" />
+          <div className="Categories">
+            <Category movies={this.state.popular} category="Popular" />
+            <Category movies={this.state.topRated} category="Top Rated" />
+          </div>
         </Grid>
       </div>
     );

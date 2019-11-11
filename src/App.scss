@@ -1,0 +1,67 @@
+.App {
+  text-align: center;
+  background-color: #282c34;
+  color:  #ffffff;
+  font-size: calc(10px + 2vmin);
+}
+
+.Header {
+  background-color: #ffffff;
+}
+
+.App-logo {
+  height: 10vmin;
+  margin: 1vmin 5vmin;
+}
+
+/* maybe delete this */
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color:  #ffffff;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.Categories {
+  font-size: calc(10px + 2vmin);
+  color:  #ffffff;
+  font-weight: 600;
+  width: 85%;
+  padding: 40px 100px 0px;
+  .Category {
+    .Movie {
+      margin: 10px;
+      .Movie-title {
+        width: 90%;
+        overflow-wrap: break-word;
+      }
+    }
+    .Category-title {
+      text-align: left;
+    }
+    .Poster {
+      max-width: 90%;
+    }
+    .slick-prev {
+      left: -80px;
+      top: 40%;
+    }
+    .slick-next {
+      top: 40%;
+    }
+    .slick-prev:before, .slick-next:before {
+      font-size: 80px;
+    }
+    .slick-dots li.slick-active button:before {
+      color:  #ffffff;
+    }
+  }
+}
