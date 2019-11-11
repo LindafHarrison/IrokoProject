@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 import ModalVideo from 'react-modal-video';
 
+import Reviews from './reviews';
+import Synopsis from './synopsis';
+
 class MovieDetails extends Component {
   render () {
     let {
@@ -11,33 +14,8 @@ class MovieDetails extends Component {
       isOpen,
     } = this.props;
 
-    let revContainer = reviews
-      ? reviews.map ((review, i) => {
-          return (
-            <Col
-              xs={10}
-              sm={10}
-              md={10}
-              lg={10}
-              xl={10}
-              xsOffset={1}
-              smOffset={1}
-              mdOffset={1}
-              lgOffset={1}
-              xlOffset={1}
-              key={i}
-              className="review"
-            >
-              <p>{review.content}</p>
-              <p className="author"> - {review.author}</p>
-              <hr />
-            </Col>
-          );
-        })
-      : <p>No Reviews</p>;
-
     return (
-      <div className="Movie-details">
+      <div className="movie-details">
         <Row>
           <Col
             xs={3}
@@ -57,7 +35,7 @@ class MovieDetails extends Component {
               alt="movie poster"
             />
           </Col>
-          <Col xs={7} sm={7} md={7} lg={7} xl={7}>
+          <Col xs={7} sm={7} md={7} lg={7} xl={7} className="left-side">
             <p>{details.title}</p>
             <p>{details.overview}</p>
             <Grid fluid>
@@ -92,96 +70,17 @@ class MovieDetails extends Component {
                       videoId={videos.results[0].key}
                       onClose={closeModal}
                     />
-                    <button onClick={openModal}>Open</button>
+                    <button onClick={openModal}>Movie Trailer</button>
                   </div>
                 </Row>}
             </Grid>
           </Col>
         </Row>
-        <Row>
-          <Col
-            xs={11}
-            sm={11}
-            md={11}
-            lg={11}
-            xl={11}
-            xsOffset={1}
-            smOffset={1}
-            mdOffset={1}
-            lgOffset={1}
-            xlOffset={1}
-          >
-            <h2>Synopsis</h2>
-          </Col>
-          <Col
-            xs={10}
-            sm={10}
-            md={10}
-            lg={10}
-            xl={10}
-            xsOffset={1}
-            smOffset={1}
-            mdOffset={1}
-            lgOffset={1}
-            xlOffset={1}
-            className="synopsis"
-          >
-            <p>{details.overview}</p>
-            <hr />
-          </Col>
-        </Row>
-        <Row>
-          <Col
-            xs={11}
-            sm={11}
-            md={11}
-            lg={11}
-            xl={11}
-            xsOffset={1}
-            smOffset={1}
-            mdOffset={1}
-            lgOffset={1}
-            xlOffset={1}
-          >
-            <h2>Reviews</h2>
-          </Col>
-          {revContainer}
-        </Row>
+        <Synopsis synopsis={details.overview} />
+        <Reviews reviews={reviews} />
       </div>
     );
   }
 }
 
 export default MovieDetails;
-
-// adult: false
-// backdrop_path: "/nRXO2SnOA75OsWhNhXstHB8ZmI3.jpg"
-// belongs_to_collection: null
-// budget: 260000000
-// genres: Array(3)
-// 0: {id: 12, name: "Adventure"}
-// 1: {id: 16, name: "Animation"}
-// 2: {id: 18, name: "Drama"}
-// length: 3
-// __proto__: Array(0)
-// homepage: "https://movies.disney.com/the-lion-king-2019"
-// id: 420818
-// imdb_id: "tt6105098"
-// original_language: "en"
-// original_title: "The Lion King"
-// overview: "Simba idolises his father, King Mufasa, and takes to heart his own royal destiny. But not everyone in the kingdom celebrates the new cub's arrival. Scar, Mufasa's brother—and former heir to the throne—has plans of his own. The battle for Pride Rock is ravaged with betrayal, tragedy and drama, ultimately resulting in Simba's exile. With help from a curious pair of newfound friends, Simba will have to figure out how to grow up and take back what is rightfully his."
-// popularity: 207.234
-// poster_path: "/2bXbqYdUdNVa8VIWXVfclP2ICtT.jpg"
-// production_companies: (2) [{…}, {…}]
-// production_countries: [{…}]
-// release_date: "2019-07-12"
-// revenue: 1649676757
-// runtime: 118
-// spoken_languages: [{…}]
-// status: "Released"
-// tagline: "The King has Returned."
-// title: "The Lion King"
-// video: false
-// vote_average: 7.1
-// vote_count: 3476
-// __proto__: Object
