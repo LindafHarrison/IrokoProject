@@ -35,19 +35,18 @@ class MovieDetails extends Component {
               alt="movie poster"
             />
           </Col>
-          <Col xs={7} sm={7} md={7} lg={7} xl={7} className="left-side">
-            <p>{details.title}</p>
-            <p>{details.overview}</p>
+          <Col xs={7} sm={7} md={7} lg={7} xl={7} className="right-side">
+            <h1>{details.title}</h1>
             <Grid fluid>
               <Row>
-                <Col xs={4} sm={4} md={4} lg={4} xl={4}>
+                <Col xs={3} sm={3} md={3} lg={3} xl={3}>
                   <p>
-                    rating: {details.vote_average}/10
+                    Rating: {details.vote_average}/10
                   </p>
                 </Col>
-                <Col xs={4} sm={4} md={4} lg={4} xl={4}>
+                <Col xs={3} sm={3} md={3} lg={3} xl={3}>
                   <p>
-                    duration:
+                    Duration:
                     {' '}
                     {Math.floor (details.runtime / 60)} hr
                     {' '}
@@ -56,8 +55,8 @@ class MovieDetails extends Component {
                       : ''}
                   </p>
                 </Col>
-                <Col xs={4} sm={4} md={4} lg={4} xl={4}>
-                  <p>release date: {details.release_date}</p>
+                <Col xs={3} sm={3} md={3} lg={3} xl={3}>
+                  <p>Release Date: {details.release_date}</p>
                 </Col>
               </Row>
               {videos &&
