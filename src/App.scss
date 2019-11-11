@@ -3,65 +3,60 @@
   background-color: #282c34;
   color:  #ffffff;
   font-size: calc(10px + 2vmin);
-}
+  .container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
 
-.Header {
-  background-color: #ffffff;
-}
+  .Header {
+    background-color: #ffffff;
+  }
 
-.App-logo {
-  height: 10vmin;
-  margin: 1vmin 5vmin;
-}
+  .App-logo {
+    height: 5vmin;
+    margin: 1vmin 5vmin;
+  }
 
-/* maybe delete this */
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color:  #ffffff;
-}
+  .App-link {
+    color: #09d3ac;
+  }
 
-.App-link {
-  color: #09d3ac;
-}
-
-.Categories {
-  font-size: calc(10px + 2vmin);
-  color:  #ffffff;
-  font-weight: 600;
-  width: 85%;
-  padding: 40px 100px 0px;
-  .Category {
-    .Movie {
-      margin: 10px;
-      .Movie-title {
-        width: 90%;
-        overflow-wrap: break-word;
+  .Categories {
+    font-size: calc(10px + 2vmin);
+    color:  #ffffff;
+    font-weight: 600;
+    width: 85%;
+    padding: 20px 100px 0px;
+    .Category {
+      .Category-title {
+        margin: 10px;
+        text-align: left;
       }
-    }
-    .Category-title {
-      text-align: left;
-    }
-    .Poster {
-      max-width: 90%;
-    }
-    .slick-prev {
-      left: -80px;
-      top: 40%;
-    }
-    .slick-next {
-      top: 40%;
-    }
-    .slick-prev:before, .slick-next:before {
-      font-size: 80px;
-    }
-    .slick-dots li.slick-active button:before {
-      color:  #ffffff;
+      .Movie {
+        margin: 10px;
+        .Movie-title {
+          width: 90%;
+          overflow-wrap: break-word;
+          font-size: calc(10px + 1vmin);
+          margin-block-end: 0;
+        }
+        .Poster {
+          max-width: 90%;
+        }
+      }
+      .slick-prev {
+        left: -50px;
+        top: 40%;
+      }
+      .slick-next {
+        top: 40%;
+      }
+      .slick-prev:before, .slick-next:before {
+        font-size: 50px;
+      }
+      .slick-dots li.slick-active button:before {
+        color:  #ffffff;
+      }
     }
   }
 }

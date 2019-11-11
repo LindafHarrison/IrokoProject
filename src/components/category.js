@@ -51,7 +51,7 @@ class Category extends Component {
       <div className="Category">
         <Row>
           <Col xs={3} sm={3} md={3} lg={3} xl={3}>
-            <h1 className="Category-title">{category}</h1>
+            <h2 className="Category-title">{category}</h2>
           </Col>
         </Row>
         <Slider {...settings}>
