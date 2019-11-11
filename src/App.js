@@ -73,7 +73,7 @@ class App extends Component {
                 <img src={irokoLogo} className="App-logo" alt="Iroko-logo" />
                 <img src={LH} className="App-logo" alt="LH-logo" />
               </Row>
-              <MovieDetails />
+              <MovieDetails movie={movieDetails.movieSelected} />
             </Grid>
           : <Grid fluid>
               <Row className="Header">
@@ -94,7 +94,6 @@ class App extends Component {
                 />
               </div>
             </Grid>}
-
       </div>
     );
   }
