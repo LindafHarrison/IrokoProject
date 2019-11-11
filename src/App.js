@@ -4,6 +4,7 @@ import irokoLogo from './logos/irokoLogo.png';
 import LH from './logos/LH.jpg';
 import './App.scss';
 import Category from './components/category';
+import MovieDetails from './components/movieDetails';
 
 import {Grid, Row} from 'react-flexbox-grid';
 import 'slick-carousel/slick/slick.css';
@@ -12,7 +13,12 @@ import 'slick-carousel/slick/slick-theme.css';
 class App extends Component {
   constructor (props) {
     super (props);
-    this.state = {};
+    this.state = {
+      movieDetails: {
+        display: false,
+        movieSelected: false,
+      },
+    };
   }
 
   componentDidMount () {
@@ -40,20 +46,55 @@ class App extends Component {
       });
   }
 
+  handleClick = movie => {
+    this.setState ({
+      movieDetails: {
+        display: true,
+        movieSelected: movie,
+      },
+    });
+  };
+
   render () {
+    let {movieDetails} = this.state;
+    console.log (
+      'movieDetails',
+      movieDetails && movieDetails.display,
+      movieDetails &&
+        movieDetails.movieSelected &&
+        movieDetails.movieSelected.title
+    );
     return (
       <div className="App">
-        <Grid fluid>
-          <Row className="Header">
-            <img src={logo} className="App-logo" alt="Movie-DB-logo" />
-            <img src={irokoLogo} className="App-logo" alt="Iroko-logo" />
-            <img src={LH} className="App-logo" alt="LH-logo" />
-          </Row>
-          <div className="Categories">
-            <Category movies={this.state.popular} category="Popular" />
-            <Category movies={this.state.topRated} category="Top Rated" />
-          </div>
-        </Grid>
+        {movieDetails.display
+          ? <Grid fluid>
+              <Row className="Header">
+                <img src={logo} className="App-logo" alt="Movie-DB-logo" />
+                <img src={irokoLogo} className="App-logo" alt="Iroko-logo" />
+                <img src={LH} className="App-logo" alt="LH-logo" />
+              </Row>
+              <MovieDetails />
+            </Grid>
+          : <Grid fluid>
+              <Row className="Header">
+                <img src={logo} className="App-logo" alt="Movie-DB-logo" />
+                <img src={irokoLogo} className="App-logo" alt="Iroko-logo" />
+                <img src={LH} className="App-logo" alt="LH-logo" />
+              </Row>
+              <div className="Categories">
+                <Category
+                  movies={this.state.popular}
+                  category="Popular"
+                  handleClick={this.handleClick}
+                />
+                <Category
+                  movies={this.state.topRated}
+                  category="Top Rated"
+                  handleClick={this.handleClick}
+                />
+              </div>
+            </Grid>}
+
       </div>
     );
   }

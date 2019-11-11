@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 
 class Category extends Component {
   render () {
-    let {movies, category} = this.props;
+    let {movies, category, handleClick} = this.props;
     var settings = {
       dots: true,
       infinite: true,
@@ -35,7 +35,7 @@ class Category extends Component {
     let movieList = movies
       ? movies.map ((movie, i) => {
           return (
-            <div key={i} className="Movie">
+            <div key={i} className="Movie" onClick={() => handleClick (movie)}>
               <img
                 className="Poster"
                 src={`https://image.tmdb.org/t/p/w370_and_h556_bestv2/${movie.poster_path}`}
