@@ -4,6 +4,9 @@ import irokoLogo from './logos/irokoLogo.png';
 import LH from './logos/LH.jpg';
 import './App.css';
 import Category from './components/category'
+
+import { Grid, Row } from 'react-flexbox-grid';
+
 class App extends Component {
 
   constructor(props) {
@@ -33,30 +36,17 @@ class App extends Component {
   }
 
   render() {
-    console.log('results popular', this.state.popular ? this.state.popular : 'still waiting' ) //showing api request results for popular movies
-    console.log('results top', this.state.topRated? this.state.topRated : 'still waiting' ) //showing api request results for popular movies
-
     return (
       <div className = "App">
-          <div className="logos">
+        <Grid fluid>
+          <Row className="Header">
             <img src={logo} className="App-logo" alt="Movie-DB-logo" />
             <img src={irokoLogo} className="App-logo" alt="Iroko-logo" />
             <img src={LH} className="App-logo" alt="LH-logo" />
-          </div>
-        <header className="App-header">
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          <Category />
-        </header>
+          </Row>
+          <Category movies= { this.state.popular } category='Popular'/>
+          <Category movies= { this.state.topRated } category='Top Rated'/>
+        </Grid>
       </div>
     );
   }

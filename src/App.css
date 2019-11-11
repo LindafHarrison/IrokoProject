@@ -1,9 +1,12 @@
 .App {
   text-align: center;
+  background-color: #282c34;
+  color: white;
+  font-size: calc(10px + 2vmin);
 }
 
-.logos {
-  display: inline-block;
+.Header {
+  background-color: #ffffff;
 }
 
 .App-logo {
@@ -11,6 +14,7 @@
   margin: 1vmin 5vmin;
 }
 
+/* maybe delete this */
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -24,4 +28,12 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.Poster {
+  max-width: 100%;
+}
+
+.Category-title {
+  text-align: left;
 }
