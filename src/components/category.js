@@ -12,6 +12,7 @@ class Category extends Component {
       slidesToShow: 5,
       slidesToScroll: 5,
       focusOnSelect: true,
+      lazyLoad: 'progressive',
       responsive: [
         {
           breakpoint: 1024,
