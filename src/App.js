@@ -6,6 +6,8 @@ import './App.css';
 import Category from './components/category'
 
 import { Grid, Row } from 'react-flexbox-grid';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 class App extends Component {
 
