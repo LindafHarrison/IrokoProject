@@ -9,8 +9,8 @@ class Category extends Component {
       dots: true,
       infinite: true,
       speed: 300,
-      slidesToShow: 5,
-      slidesToScroll: 5,
+      slidesToShow: 7,
+      slidesToScroll: 7,
       focusOnSelect: true,
       lazyLoad: 'progressive',
       responsive: [

@@ -22,7 +22,7 @@
   }
 
   .Categories {
-    font-size: calc(10px + 2vmin);
+    font-size: calc(5px + 2vmin);
     color:  #ffffff;
     font-weight: 600;
     width: 85%;
@@ -35,13 +35,21 @@
       .Movie {
         margin: 10px;
         .Movie-title {
-          width: 90%;
-          overflow-wrap: break-word;
+          margin-left: auto;
+          margin-right: auto;
+          width: 85%;
+          overflow: hidden;
           font-size: calc(10px + 1vmin);
           margin-block-end: 0;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
         }
         .Poster {
-          max-width: 90%;
+          max-width: 100%;
+          height: 200px;
+          margin-left: auto;
+          margin-right: auto;
         }
       }
       .slick-prev {
