@@ -14,6 +14,7 @@ class App extends Component {
   constructor (props) {
     super (props);
     this.state = {
+      isOpen: false,
       movieDetails: {
         display: false,
         movieSelected: false,
@@ -22,6 +23,9 @@ class App extends Component {
         videos: null,
       },
     };
+    this.openModal = this.openModal.bind (this);
+    this.closeModal = this.closeModal.bind (this);
+    this.handleClick = this.handleClick.bind (this);
   }
 
   componentDidMount () {
@@ -101,6 +105,14 @@ class App extends Component {
     }
   }
 
+  openModal () {
+    this.setState ({isOpen: true});
+  }
+
+  closeModal () {
+    this.setState ({isOpen: false});
+  }
+
   handleClick = movie => {
     var mDetails = {...this.state.movieDetails};
     mDetails.display = true;
@@ -111,7 +123,7 @@ class App extends Component {
   };
 
   render () {
-    let {movieDetails} = this.state;
+    let {movieDetails, isOpen} = this.state;
     return (
       <div className="App">
         {movieDetails.display
@@ -121,7 +133,13 @@ class App extends Component {
                 <img src={irokoLogo} className="App-logo" alt="Iroko-logo" />
                 <img src={LH} className="App-logo" alt="LH-logo" />
               </Row>
-              {movieDetails.details && <MovieDetails movie={movieDetails} />}
+              {movieDetails.details &&
+                <MovieDetails
+                  movie={movieDetails}
+                  openModal={this.openModal}
+                  closeModal={this.closeModal}
+                  isOpen={isOpen}
+                />}
             </Grid>
           : <Grid fluid>
               <Row className="header">

@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
 import {Grid, Row, Col} from 'react-flexbox-grid';
+import ModalVideo from 'react-modal-video';
 
 class MovieDetails extends Component {
   render () {
-    let {reviews, details, videos} = this.props.movie;
-    console.log ('videos', videos);
-    // https://www.themoviedb.org/movie/{videos.id}-[details.title split(' ').join('-')]#play={videos[0].key}
-    // https://www.themoviedb.org/movie/420818-the-lion-king#play=7TavVZMewpY
+    let {
+      movie: {reviews, details, videos},
+      openModal,
+      closeModal,
+      isOpen,
+    } = this.props;
 
     let revContainer = reviews
       ? reviews.map ((review, i) => {
@@ -79,6 +82,19 @@ class MovieDetails extends Component {
                   <p>release date: {details.release_date}</p>
                 </Col>
               </Row>
+              {videos &&
+                videos.results[0] &&
+                <Row>
+                  <div>
+                    <ModalVideo
+                      channel="youtube"
+                      isOpen={isOpen}
+                      videoId={videos.results[0].key}
+                      onClose={closeModal}
+                    />
+                    <button onClick={openModal}>Open</button>
+                  </div>
+                </Row>}
             </Grid>
           </Col>
         </Row>
