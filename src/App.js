@@ -17,6 +17,9 @@ class App extends Component {
       movieDetails: {
         display: false,
         movieSelected: false,
+        reviews: null,
+        details: null,
+        videos: null,
       },
     };
   }
@@ -46,42 +49,87 @@ class App extends Component {
       });
   }
 
+  componentDidUpdate () {
+    let {movieDetails} = this.state;
+    if (movieDetails.display && movieDetails.reviews === null) {
+      let API_KEY = '14c1419a1e75d43b43633d5fd7b10efb';
+      let movie_id = movieDetails.movieSelected.id;
+      fetch (
+        `https://api.themoviedb.org/3/movie/${movie_id}/reviews?api_key=${API_KEY}`
+      )
+        .then (res => res.json ())
+        .then (data => {
+          var mDetails = {...movieDetails};
+          mDetails.reviews = data.results;
+          this.setState ({movieDetails: mDetails});
+        })
+        .catch (error => {
+          console.log ('Looks like there was a problem: \n', error);
+        });
+    }
+    if (movieDetails.display && movieDetails.details === null) {
+      let API_KEY = '14c1419a1e75d43b43633d5fd7b10efb';
+      let movie_id = movieDetails.movieSelected.id;
+      fetch (
+        `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${API_KEY}`
+      )
+        .then (res => res.json ())
+        .then (data => {
+          var mDetails = {...movieDetails};
+          mDetails.details = data;
+          this.setState ({movieDetails: mDetails});
+        })
+        .catch (error => {
+          console.log ('Looks like there was a problem: \n', error);
+        });
+    }
+    if (movieDetails.display && movieDetails.videos === null) {
+      let API_KEY = '14c1419a1e75d43b43633d5fd7b10efb';
+      let movie_id = movieDetails.movieSelected.id;
+      fetch (
+        `https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${API_KEY}`
+      )
+        .then (res => res.json ())
+        .then (data => {
+          var mDetails = {...movieDetails};
+          mDetails.videos = data;
+          this.setState ({movieDetails: mDetails});
+        })
+        .catch (error => {
+          console.log ('Looks like there was a problem: \n', error);
+        });
+    }
+  }
+
   handleClick = movie => {
+    var mDetails = {...this.state.movieDetails};
+    mDetails.display = true;
+    mDetails.movieSelected = movie;
     this.setState ({
-      movieDetails: {
-        display: true,
-        movieSelected: movie,
-      },
+      movieDetails: mDetails,
     });
   };
 
   render () {
     let {movieDetails} = this.state;
-    console.log (
-      'movieDetails',
-      movieDetails && movieDetails.display,
-      movieDetails &&
-        movieDetails.movieSelected &&
-        movieDetails.movieSelected.title
-    );
     return (
       <div className="App">
         {movieDetails.display
           ? <Grid fluid>
-              <Row className="Header">
+              <Row className="header">
                 <img src={logo} className="App-logo" alt="Movie-DB-logo" />
                 <img src={irokoLogo} className="App-logo" alt="Iroko-logo" />
                 <img src={LH} className="App-logo" alt="LH-logo" />
               </Row>
-              <MovieDetails movie={movieDetails.movieSelected} />
+              {movieDetails.details && <MovieDetails movie={movieDetails} />}
             </Grid>
           : <Grid fluid>
-              <Row className="Header">
+              <Row className="header">
                 <img src={logo} className="App-logo" alt="Movie-DB-logo" />
                 <img src={irokoLogo} className="App-logo" alt="Iroko-logo" />
                 <img src={LH} className="App-logo" alt="LH-logo" />
               </Row>
-              <div className="Categories">
+              <div className="categories">
                 <Category
                   movies={this.state.popular}
                   category="Popular"

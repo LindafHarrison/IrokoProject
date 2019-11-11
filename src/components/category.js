@@ -35,23 +35,23 @@ class Category extends Component {
     let movieList = movies
       ? movies.map ((movie, i) => {
           return (
-            <div key={i} className="Movie" onClick={() => handleClick (movie)}>
+            <div key={i} className="movie" onClick={() => handleClick (movie)}>
               <img
-                className="Poster"
+                className="poster"
                 src={`https://image.tmdb.org/t/p/w370_and_h556_bestv2/${movie.poster_path}`}
                 alt="movie poster"
               />
-              <p className="Movie-title">{movie.title}</p>
+              <p className="movie-title">{movie.title}</p>
             </div>
           );
         })
       : [];
 
     return (
-      <div className="Category">
+      <div className="category">
         <Row>
           <Col xs={3} sm={3} md={3} lg={3} xl={3}>
-            <h2 className="Category-title">{category}</h2>
+            <h2 className="category-title">{category}</h2>
           </Col>
         </Row>
         <Slider {...settings}>

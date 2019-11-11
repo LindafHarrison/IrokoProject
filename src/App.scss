@@ -8,7 +8,7 @@
     padding-left: 0px;
   }
 
-  .Header {
+  .header {
     background-color: #ffffff;
   }
 
@@ -21,20 +21,20 @@
     color: #09d3ac;
   }
 
-  .Categories {
+  .categories {
     font-size: calc(5px + 2vmin);
     color:  #ffffff;
     font-weight: 600;
     width: 85%;
     padding: 20px 100px 0px;
-    .Category {
-      .Category-title {
+    .category {
+      .category-title {
         margin: 10px;
         text-align: left;
       }
-      .Movie {
+      .movie {
         margin: 10px;
-        .Movie-title {
+        .movie-title {
           margin-left: auto;
           margin-right: auto;
           width: 85%;
@@ -45,12 +45,15 @@
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
         }
-        .Poster {
+        .poster {
           max-width: 100%;
           height: 200px;
           margin-left: auto;
           margin-right: auto;
         }
+      }
+      .slick-dots li button:before { 
+        opacity: .5;
       }
       .slick-prev {
         left: -50px;
@@ -64,6 +67,30 @@
       }
       .slick-dots li.slick-active button:before {
         color:  #ffffff;
+      }
+    }
+  }
+
+  .Movie-details {
+    text-align: left;
+    font-size: calc(5px + 1vmin);
+    hr {
+      display: block;
+      height: 1px;
+      border: 0;
+      border-top: 1px solid #ccc;
+      margin: 1em 0;
+      padding: 0;
+    }
+    .synopsis {
+      font-size: calc(9px + 1vmin);
+      hr {
+        border-top: 3px solid rgb(138, 187, 172);
+      }
+    }
+    .review {
+      .author {
+        font-weight: 700;
       }
     }
   }
