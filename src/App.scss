@@ -1,32 +1,40 @@
 @import 'node_modules/react-modal-video/scss/modal-video.scss';
 
+body {
+  background-color: #282c34;
+}
 .App {
   text-align: center;
-  background-color: #282c34;
   color:  #ffffff;
   font-size: calc(10px + 2vmin);
   .container-fluid {
     padding-right: 0px;
     padding-left: 0px;
   }
-
-  .header {
-    background-color: #ffffff;
-  }
-
   .App-logo {
-    height: 5vmin;
-    margin: 1vmin 5vmin;
+    max-width: 100%;
+    max-height: 50px;
   }
-
   .App-link {
     color: #09d3ac;
   }
-
   .poster {
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .header {
+    background-color: #ffffff;
+    .back-to-home {
+      font-size: calc(20px + 2vmin);
+      font-weight: 700;
+      border-radius: 8px;
+      border: 2px solid rgb(147, 76, 175); 
+      background-color: #4d5463;
+      color: #ffffff;
+      margin: 10px 8px ;
+    }
   }
 
   .categories {
