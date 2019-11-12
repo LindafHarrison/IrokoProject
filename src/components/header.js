@@ -7,6 +7,8 @@ import LH from '../logos/LH.jpg';
 class Header extends Component {
   render () {
     let {handleHeaderClick} = this.props;
+    // handleHeaderClick -> anywhere in div when clicked -> returns to home page
+
     return (
       <Row className="header" onClick={handleHeaderClick} middle="lg md">
         <Col

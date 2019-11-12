@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import {Row, Col} from 'react-flexbox-grid';
-import Slider from 'react-slick';
+import Slider from 'react-slick'; //for carousal
 
 class Category extends Component {
   render () {
     let {movies, category, handleClick} = this.props;
+
+    //used for carousal
     var settings = {
       dots: true,
       infinite: true,
@@ -32,6 +34,7 @@ class Category extends Component {
         },
       ],
     };
+
     let movieList = movies
       ? movies.map ((movie, i) => {
           return (

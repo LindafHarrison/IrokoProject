@@ -21,7 +21,9 @@ class App extends Component {
   }
 
   componentDidMount () {
-    let API_KEY = '14c1419a1e75d43b43633d5fd7b10efb';
+    let API_KEY = ''; //place API key here
+
+    //fetch popular movies
     fetch (`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`)
       .then (res => res.json ())
       .then (data =>
@@ -33,6 +35,7 @@ class App extends Component {
         console.log ('Looks like there was a problem: \n', error);
       });
 
+    //fetch top-rated movies
     fetch (`https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`)
       .then (res => res.json ())
       .then (data =>
@@ -47,6 +50,7 @@ class App extends Component {
 
   handleClick = movie => {
     this.setState ({
+      //click movie -> display details pg
       displayDetailPg: true,
       movieSelected: movie.id,
     });
@@ -54,6 +58,7 @@ class App extends Component {
 
   handleHeaderClick = movie => {
     this.setState ({
+      //click header -> display home page
       displayDetailPg: false,
     });
   };
@@ -63,11 +68,13 @@ class App extends Component {
     return (
       <div className="App">
         {displayDetailPg
-          ? <Grid fluid>
+          ? //display details page
+            <Grid fluid>
               <Header handleHeaderClick={this.handleHeaderClick} />
               <MovieDetails movie={movieSelected} />
             </Grid>
-          : <Grid fluid>
+          : //display home page
+            <Grid fluid>
               <Header handleHeaderClick={this.handleHeaderClick} />
               <div className="categories">
                 <Category

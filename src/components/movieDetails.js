@@ -24,7 +24,9 @@ class MovieDetails extends Component {
 
   componentDidMount () {
     let {movieID} = this.state;
-    let API_KEY = '14c1419a1e75d43b43633d5fd7b10efb';
+    let API_KEY = ''; //place API key here
+
+    //fetches reviews
     fetch (
       `https://api.themoviedb.org/3/movie/${movieID}/reviews?api_key=${API_KEY}`
     )
@@ -35,6 +37,8 @@ class MovieDetails extends Component {
       .catch (error => {
         console.log ('Looks like there was a problem: \n', error);
       });
+
+    //fetches movie details
     fetch (`https://api.themoviedb.org/3/movie/${movieID}?api_key=${API_KEY}`)
       .then (res => res.json ())
       .then (data => {
@@ -43,6 +47,8 @@ class MovieDetails extends Component {
       .catch (error => {
         console.log ('Looks like there was a problem: \n', error);
       });
+
+    //fetches trailer
     fetch (
       `https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=${API_KEY}`
     )
@@ -62,23 +68,17 @@ class MovieDetails extends Component {
   }
 
   openModal () {
+    //open trailer
     this.setState ({isOpen: true});
   }
 
   closeModal () {
+    //close trailer
     this.setState ({isOpen: false});
   }
 
   render () {
-    let {
-      reviews,
-      details,
-      videos,
-      openModal,
-      closeModal,
-      isOpen,
-      loading,
-    } = this.state;
+    let {reviews, details, videos, isOpen, loading} = this.state;
     const override = css`
     display: block;
     margin: 0 auto;
@@ -87,7 +87,8 @@ class MovieDetails extends Component {
     return (
       <div className="movie-details">
         {loading
-          ? <div className="sweet-loading">
+          ? //fetches are not complete -> loading screen
+            <div className="sweet-loading">
               <MoonLoader
                 css={override}
                 sizeUnit={'px'}
