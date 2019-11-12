@@ -5,7 +5,7 @@ class Reviews extends Component {
   render () {
     let {reviews} = this.props;
 
-    let revContainer = reviews
+    let revContainer = reviews.length > 0
       ? reviews.map ((review, i) => {
           return (
             <Col
@@ -28,7 +28,21 @@ class Reviews extends Component {
             </Col>
           );
         })
-      : <p>No Reviews</p>;
+      : <Col
+          xs={10}
+          sm={10}
+          md={10}
+          lg={10}
+          xl={10}
+          xsOffset={1}
+          smOffset={1}
+          mdOffset={1}
+          lgOffset={1}
+          xlOffset={1}
+          className="review"
+        >
+          <p> No Reviews </p>
+        </Col>;
 
     return (
       <Row>
