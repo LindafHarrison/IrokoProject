@@ -34,6 +34,6 @@ Add your `API_KEY` to:
 * src/App.js on line 24
 * src/components/movieDetails.js on line 27
 
-### 
+### Local Caching
 local caching strategy [Docs](https://developer.mozilla.org/en-US/docs/Web/API/Request/cache).
 
